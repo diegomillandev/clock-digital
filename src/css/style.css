@@ -1,0 +1,142 @@
+@font-face {
+    font-family: "DS-Digital";
+    src: url("../public/font/DS-DIGI.TTF") format("truetype");
+}
+
+:root {
+    --clock-bg-color: #0f1720;
+    --bg-color: #272e38;
+    --color-text: #3a4048;
+    --color-text-ligth: #cacaca;
+    --color-two-dots: #cacaca;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+html {
+    font-size: 62.5%;
+}
+@media only screen and (min-width: 468px) {
+    html {
+        font-size: 75%;
+    }    
+}
+@media only screen and (min-width: 768px) {
+    html {
+        font-size: 100%;
+    }    
+}
+body {
+    font-family: "DS-Digital";
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+body.darkMode {
+    --clock-bg-color: #ddd; 
+    --bg-color: #f3f3f3;
+    --color-text-ligth: #3a4048;
+    --color-text: #b0b0b0;
+    --color-two-dots: #3a4048;
+}
+.clock {
+    background-color: var(--clock-bg-color);
+    max-width: 25rem;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    gap: 0.5rem;
+    position: relative;
+}
+.clock .clock-days {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.25rem;
+    color: var(--color-text);
+}
+.clock .clock-days .active {
+    color: var(--color-text-ligth);
+}
+.swith-icon {
+    margin-left: 0.5rem;
+    cursor: pointer;
+    font-size: 1.25rem;
+    color: var(--color-text-ligth);
+}
+.clock-time {
+    color: var(--color-text-ligth);
+    font-size: 5rem;
+
+    display: grid;
+    grid-template-columns: repeat(3, 4.6875rem);
+    justify-content: center;
+    gap: 0.9rem;
+}
+.clock-time .wrapper-span {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: end;
+    position: relative;
+}
+.wrapper-span:nth-child(1)::after {
+    content: ":";
+    position: absolute;
+    right: -1.125rem;
+    line-height: 0.9;
+    color: var(--color-two-dots);
+
+
+}
+.wrapper-span:nth-child(2)::after {
+    content: ":";
+    position: absolute;
+    right: -1.125rem;
+    line-height: 0.9;
+    color: var(--color-two-dots);
+
+}
+.format-hours {
+    position: absolute;
+    bottom: 40%;
+    left: 7%;
+    font-size: 1.25rem;
+    color: var(--color-text);
+
+    display: flex;
+    flex-direction: column;
+}
+.format-hours span {
+    cursor: pointer;
+}
+.format-hours span.active {
+    color: var(--color-text-ligth);
+}
+.month-day {
+    position: absolute;
+    bottom: 20%;
+    left: 5%;
+    font-size: 1.25rem;
+    color: var(--color-text);
+}
+.am-pm {
+    position: absolute;
+    bottom: 20%;
+    right: 7%;
+    font-size: 1.8rem;
+    color: var(--color-text);
+
+    display: flex;
+    flex-direction: column;
+}
+.am-pm .active {
+    color: var(--color-text-ligth);
+}
